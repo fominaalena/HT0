@@ -15,7 +15,7 @@ public class HTMLCreator {
 			writer.write(
 					"<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<title>List of MP3 files</title>\n</head>\n\n<body>\n\n");
 			for (Map.Entry<String, Map<String, List<String>>> artist : htmlMap.entrySet()) {
-				writer.write("<div><h3>" + artist.getKey() + "</h3>\n");
+				writer.write("<div><h3>" + "Artist: " + artist.getKey() + "</h3>\n");
 				for (Map.Entry<String, List<String>> album : artist.getValue().entrySet()) {
 					writer.write("<div><h5>" + "Album: " + album.getKey() + "</h5>\n");
 					for (String tagInformation : album.getValue()) {
