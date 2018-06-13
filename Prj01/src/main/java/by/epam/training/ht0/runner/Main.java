@@ -57,13 +57,25 @@ public class Main {
 		building2.getRoom("Siting room").addBulb(new Bulb(150));
 		building2.getRoom("Siting room").addBulb(new Bulb(250));
 		
+		Building building3 = new Building("Building 3");
+		building3.addRoom(new Room("Guest Room", 10, 2));
+		building3.getRoom("Guest Room").addFurniture(new Sofa(3));
+		building3.getRoom("Guest Room").addFurniture(new Armchair(2));
+		building3.getRoom("Guest Room").addBulb(new Bulb(150));
+		building3.getRoom("Guest Room").addBulb(new Bulb(250));
+		
+		building3.addRoom(new Room("Util Room", 3, 0));
+		building3.getRoom("Util Room").addBulb(new Bulb(400));
 		
 		building.describeBuilding();
 		System.out.println(" ");
 		System.out.println("------------");
 		System.out.println("");
 		building2.describeBuilding();
-
+		System.out.println(" ");
+		System.out.println("------------");
+		System.out.println("");
+		building3.describeBuilding();
 	}
 
 }
