@@ -3,7 +3,7 @@ package by.epam.training.ht0.building;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Building implements Builder {
+public class Building {
 
 	private String buildingName;
 

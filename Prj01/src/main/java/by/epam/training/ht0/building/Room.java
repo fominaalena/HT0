@@ -14,7 +14,6 @@ public class Room {
 	private String roomName;
 	private double roomSquare;
 	private int countWindow;
-	private int roomIllumination;
 	private final int minIllumination = 300;
 	private final int maxIllumination = 4000;
 
@@ -90,7 +89,7 @@ public class Room {
 
 	}
 
-	public int getBulbLight() { //only bulb illumination
+	public int getBulbLight() { // only bulb illumination
 		int lightBulb = 0;
 		for (Bulb bulbLight : bulbs) {
 			lightBulb += bulbLight.getLight();
@@ -98,12 +97,12 @@ public class Room {
 		return lightBulb;
 	}
 
-	public int getWindowLight() { //only window illumination
+	public int getWindowLight() { // only window illumination
 		int windowLight = Window.LUMINOCITY * countWindow;
 		return windowLight;
 	}
 
-	public int getTotalIllumination() { //total illumination in the room
+	public int getTotalIllumination() { // total illumination in the room
 		int totalIllumination = 0;
 		int windowLight = Window.LUMINOCITY * countWindow;
 		int lightBulb = getBulbLight();
@@ -116,19 +115,20 @@ public class Room {
 		double usedSquare = getFurnitureSquare() * 100 / roomSquare;
 		return "The square of the room is used at " + usedSquare + "%";
 	}
-	
+
 	public String getFreeSquare() {
 		double freeSquare = 100 - (getFurnitureSquare() * 100 / roomSquare);
 		return freeSquare + "%" + " of the square is free";
 	}
 
+
 	@Override
 	public String toString() {
 		return getRoomName() + "\n" + "Luminocity in the room is: " + getTotalIllumination() + " (" + countWindow
-				+ " windows with " + getWindowLight() + " light and bulbs " + bulbs + " with total light " + getBulbLight() + ")"
-				+ "\n" + "The square of the room is " + roomSquare + " m2" + " (" + getUsedSquare() + " and " + getFreeSquare() + ")"
-				+ "\n" + "The furniture are: " + "\n" + furniture + "\n" + "Total square of furniture is "
-				+ getFurnitureSquare() + " m2" + "\n";
+				+ " windows with " + getWindowLight() + " light and bulbs " + bulbs + " with total light "
+				+ getBulbLight() + ")" + "\n" + "The square of the room is " + roomSquare + " m2" + " ("
+				+ getUsedSquare() + " and " + getFreeSquare() + ")" + "\n" + "The furniture are: " + "\n" + furniture
+				+ "\n" + "Total square of furniture is " + getFurnitureSquare() + " m2" + "\n";
 	}
 
 }
