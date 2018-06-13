@@ -39,7 +39,7 @@ public class MP3 extends SimpleFileVisitor<Path> {
 
 	private void addFiles(Mp3File mp3File, Path file) {
 		ID3v2 tag = mp3File.getId3v2Tag();
-		String artist = tag.getArtist();
+		String musician = tag.getArtist();
 		String album = tag.getAlbum();
 		String title = tag.getTitle();
 		long length = mp3File.getLengthInSeconds();
@@ -47,20 +47,20 @@ public class MP3 extends SimpleFileVisitor<Path> {
 		String tags = new StringBuilder().append("<h4>").append("Title: ").append(title).append(" ").append(length)
 				.append(" sec ").append("(").append(file).append(")</h4>").toString();
 
-		if (htmlMap.containsKey(artist)) {
-			if (htmlMap.get(artist).containsKey(album)) {
-				htmlMap.get(artist).get(album).add(tags);
+		if (htmlMap.containsKey(musician)) {
+			if (htmlMap.get(musician).containsKey(album)) {
+				htmlMap.get(musician).get(album).add(tags);
 			} else {
 				List<String> information = new ArrayList<>();
 				information.add(tags);
-				htmlMap.get(artist).put(album, information);
+				htmlMap.get(musician).put(album, information);
 			}
 		} else {
 			List<String> information = new ArrayList<>();
 			information.add(tags);
 			Map<String, List<String>> albums = new HashMap<>();
 			albums.put(album, information);
-			htmlMap.put(artist, albums);
+			htmlMap.put(musician, albums);
 		}
 	}
 
